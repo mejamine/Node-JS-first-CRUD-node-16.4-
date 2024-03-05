@@ -10,6 +10,8 @@
   "name": "app_log",
   "version": "1.0.0",
   "description": "application crud avec mongoDB",
+  "private":true,
+  "proxy":"http://localhost:3001",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
