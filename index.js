@@ -1,9 +1,11 @@
 const express=require('express');
 const database = require('./src/database/db.config');
+const cors=require('cors');
 require('dotenv').config();
 const app=express();
 app.unsubscribe(express.urlencoded({ extended: true}));
 app.use(express.json());
+app.use(cors());
 database.mongoose.connect(database.url,{
     useNewUrlParser: true,
     useUnifiedTopology: true
