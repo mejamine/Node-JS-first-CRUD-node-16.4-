@@ -58,12 +58,12 @@ exports.findOne = (req, res) =>{
 }
 exports.update =(req, res) =>{
     const id = req.params.id;
-    const {title, content} = req.body;
-    if(!id || !title || !content) {
+    const {title, content,author,slug,tags} = req.body;
+    if(!id || !title || !content || !author || !slug || !tags) {
     res.status(400).send({ message: "content is required "});
     }
     Post.findByIdAndUpdate(id,
-    {title: title, content: content},
+    {title: title, content: content, author : author, slug : slug, tags : tags},
     {useFindAndModify: false}).then((data) =>{
         if(!data){
             res.status(404).send({ message: `Can not update Post with id=${id}`});
